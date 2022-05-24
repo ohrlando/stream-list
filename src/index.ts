@@ -304,7 +304,7 @@ export class List {
      * Returns a generator function. It conforms to both the iterable protocol and the iterator protocol.
      * @returns 
      */
-    *entries() {
+    *entries(): Iterable<any> {
         /// <signature>
         /// <returns type="Array" />
         /// </signature>
@@ -324,7 +324,7 @@ export class List {
                     _item = this.behaviorFunctionTypes[action.type].apply(stopAny, [action.func, _item, i]);
                     if (stopAny.a) {
                         if (stopAny.r) {
-                            return stopAny.r;
+                            yield stopAny.r;
                         }
                         break;
                     }
@@ -338,9 +338,10 @@ export class List {
 
     /**
      * Simple iteration from List
-     * @returns Array
+     * @returns Array¹
      */
     toList(): Array<any> {
+        // @ts-ignore
         return [...this.entries()]
     }
 
@@ -353,6 +354,3 @@ export class List {
     }
 
 }
-
-
-module.exports = List;

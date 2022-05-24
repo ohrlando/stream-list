@@ -2,12 +2,15 @@
   "name": "stream-list",
   "version": "0.0.1",
   "description": "Empowered Array like java java.util.Collection.stream or C# System.Linq.Enumerable API implementation. Safe chain calling with minimal iteration",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc --downlevelIteration",
+    "test": "jest --config=jest.config.json",
+    "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
@@ -25,5 +28,12 @@
   "bugs": {
     "url": "https://github.com/ohrlando/stream-list/issues"
   },
-  "homepage": "https://github.com/ohrlando/stream-list#readme"
+  "homepage": "https://github.com/ohrlando/stream-list#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "jest": "^28.1.0"
+  }
 }
