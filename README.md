@@ -1,6 +1,13 @@
 # Stream List
 Empowered Array like java java.util.Collection.stream or C# System.Linq.Enumerable API implementation. Safe chain calling with minimal iteration
 
+## Installation
+
+```
+$ npm i stream-list
+```
+
+## Examples
 ```javascript
  let myNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
  let mylist = new List(myNumbers);
