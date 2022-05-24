@@ -1,5 +1,5 @@
 ﻿/**
- * Class function wrapper class with callback and function behavior
+ * Function wrapper class with callback and function behavior
  */
 class Action {
     private _type: string
