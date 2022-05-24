@@ -15,7 +15,7 @@ $ npm i stream-list
   .filter((num) => num % 2 == 0)  //only pair
   .map((num) => num * num)  // square
   .map((num) => num/2) // half
-  .toList(); // myNumbers was just itered once
+  .toList(); // myNumbers was just iterated once
  
  // safe branches
  let myNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
