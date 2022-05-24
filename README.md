@@ -1,32 +1,43 @@
-# List_Lambda_js
-List class with Lambda like c# with select, where, first (condition), last(condition), distinct, each, etc.
+# Stream List
+Empowered Array like java java.util.Collection.stream or C# System.Linq.Enumerable API implementation. Safe chain calling with minimal iteration
 
-*It is equal to C# IList methods because you have minimal interactions even performing consecutive calls!*
+```javascript
+ let myNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ let mylist = new List(myNumbers);
+ myList
+  .filter((num) => num % 2 == 0)  //only pair
+  .map((num) => num * num)  // square
+  .map((num) => num/2) // half
+  .toList(); // myNumbers was just itered once
+ 
+ // safe branches
+ let myNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ let myList = new List(myNumbers);
+ let pairNumbers = myList.filter((num) => num % 2 == 0);
+ let pairNumbersGreaterEqualThan5 = pairNumbers.filter((num) => num >= 5).toList();  //first full iteration from myNumbers
+ let pairNumbersLessThan5 = pairNumbers.filter((num) => num >= 5).toList();  //another full iteration from myNumbers
+```
 
-####demos: http://jsfiddle.net/ohrlando/Lu6c4dkx/
+## APIs
 
-## List class to javascript like c# List with lambda methods:
-### select, where, any (filter condition), each (function)
-### first, first(filter condition), last, remove (index), add, addRange(Array), slice
-### And new distinct objects and distinct string/int, 
+### first
 
+### last
 
-###It works fine with *jQuery* (see the samples at jsfiddle)
+### any
 
+### where
 
-*Array, List, c#, IEnumerable, Lambda, Action, Javascript, js*
+### select
 
+### distinct
+
+### each
+
+### entries
+
+### toList
 
 # Release Notes
-- 1.3.0
-  - improve performance on distinct.
-  - added callback's data (used by distinct)
-
-- 1.2.1
-  - fixed bug - index was undefined for "each", "select" and "where" methods
-
-- 1.2.0
-  - fixed bugs, added distinct 
-
-- 1.1.0
-  - Added last, first
+## v0.0.1
+- Initial files
