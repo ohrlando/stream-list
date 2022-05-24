@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc --downlevelIteration",
     "test": "jest --config=jest.config.json",
-    "prepublish": "npm test"
+    //"prepublish": "npm test"
   },
   "repository": {
     "type": "git",
