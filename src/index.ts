@@ -105,7 +105,7 @@ export class List {
      * @param array based
      * @param inheritCallbacks 
      */
-    constructor (array: Array<any>, inheritCallbacks: Array<Action>) {
+    constructor (array: Array<any>, inheritCallbacks?: Array<Action>) {
         this._array = array;
         this._callbackArray = inheritCallbacks || [];
     }
@@ -247,6 +247,15 @@ export class List {
         let lastAction = new Action(func, "w");
         return List.newBranch(this, lastAction);
     }
+
+    /**
+     * Filters a sequence of values based on a predicate.
+     * @param func A function to test each element for a condition.
+     * @returns A List that contains elements from the input sequence that satisfy the condition.
+     */
+     filter<T>(func: (item: T, index: number) => boolean): List {
+        return this.where(func);
+    }
     
     /**
      * Projects each element of a sequence into a new form.
@@ -256,6 +265,15 @@ export class List {
     select<T>(func: (item: T, index: number) => any): List {
         let lastAction = new Action(func, "s");
         return List.newBranch(this, lastAction);
+    }
+
+    /**
+     * Projects each element of a sequence into a new form.
+     * @param func A transform function to apply to each element.
+     * @returns A List whose elements are the result of invoking the transform function on each element of source.
+     */
+    map<T>(func: (item: T, index: number) => any): List {
+        return this.select(func);
     }
 
     /**
